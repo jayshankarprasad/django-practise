@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+    <h1>Home Page</h1>
+    {% for post in posts %}
+        <div>
+            <a href="{% url 'post' post.id %}">{{ post.title }}</a>
+            <h2>{{ post.id }} - {{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+        </div>
+    {% empty %}
+        <p>Post is not available.</p>
+    {% endfor %}
+{% endblock body %}
